@@ -1,0 +1,30 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<div>
+    Query: @Query2
+</div>
+
+<div>
+    Custom message: @_customMessage
+</div>
+
+
+
+
+@code {
+    [SupplyParameterFromQuery]
+    public string? Query2 { get; set; }
+    
+    private string? _customMessage;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _customMessage = Query2;
+    }
+}
